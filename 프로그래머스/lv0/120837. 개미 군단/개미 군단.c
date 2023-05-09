@@ -3,28 +3,11 @@
 #include <stdlib.h>
 
 int solution(int hp) {
-    int ants=0;
-    for(int i=0;;i+=5)
-    {
-        if(hp<i)
-        {
-            i-=5;
-            ants=i/5;
-            hp-=(i);
-            break;
-        }
-    }
-    for(int i=0;;i+=3)
-    {
-        if(hp<i)
-        {
-            i-=3;
-            ants+=i/3;
-            hp-=(i);
-            break;
-        }
-    }
-    ants+=hp;
+   int ant5,ant3,ant1;
+    ant5=hp/5;
+    ant3=(hp%5)/3;
+    ant1=((hp%5)%3);
     
-    return ants;
+    
+    return ant5+ant3+ant1;
 }
