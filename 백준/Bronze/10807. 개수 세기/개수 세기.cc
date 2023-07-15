@@ -9,7 +9,7 @@ int main()
     int arr[205]={0,};
     int quant, x, t;
     cin>>quant;
-    for(int i=0; i<quant;i++)
+    while(quant--)
     {
         cin>>t;
         arr[t+100]++;
