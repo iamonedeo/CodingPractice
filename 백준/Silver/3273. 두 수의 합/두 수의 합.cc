@@ -16,7 +16,7 @@ int main()
     }
     cin>>X;
     for(int i=0; i<(X+1)/2;i++)
-        if(arr[i]==1&&arr[X-i]==1&&X>=i) ans++;
+        if(arr[i]==1&&arr[X-i]==1) ans++;
     
     cout<<ans;
         
