@@ -6,24 +6,18 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);
     
-    int arr[100005];
-    int num[2000005]={0,};
-    
-    int quant,X, ans=0;
+    int arr[2000005]={0};
+    int quant, X, t, ans=0;
     cin>>quant;
-    
-    for(int i=0; i<quant;i++)
-        cin>>arr[i];
-    cin>>X;
-    
     for(int i=0; i<quant;i++)
     {
-        if(arr[i]<=X)
-        {
-            if(num[X-arr[i]]>0)ans++;
-            else num[arr[i]]++;
-        }
+        cin>>t;
+        arr[t]=1;
     }
+    cin>>X;
+    for(int i=0; i<(X+1)/2;i++)
+        if(arr[i]==1&&arr[X-i]==1&&X>=i) ans++;
+    
     cout<<ans;
         
     return 0;
