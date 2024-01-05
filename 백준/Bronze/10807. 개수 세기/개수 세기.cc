@@ -1,21 +1,21 @@
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-    using namespace std;
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    int arr[205]={0,};
-    int quant, x, t;
-    cin>>quant;
-    while(quant--)
-    {
-        cin>>t;
-        arr[t+100]++;
-    }
-    cin>>x;
-    cout<<arr[x+100];
-    
-    return 0;
+	cin.tie(0);
+	ios::sync_with_stdio(0);
+
+	int n, v,input;
+	int arr[202] = {};
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> input;
+		input += 100;
+		arr[input]++;
+	}
+	cin >> v;
+	cout << arr[v+100];
 }
