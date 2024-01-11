@@ -1,36 +1,35 @@
-
 #include <iostream>
 #include <stack>
 
+using namespace std;
 int main()
 {
-    using namespace std;
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+	cin.tie(0);
+	ios::sync_with_stdio(0);
 
-    int k;
-    int oper;
-    stack<int> sta;
-    cin >> k;
-    cin.ignore();
-    while (k--)
-    {
-        cin >> oper;
-        cin.ignore();
-        if (oper == 0)
-        {
-            if (!sta.empty())
-                sta.pop();
-        }
-         else sta.push(oper);
-    }
-    int ans = 0;
-    while (!sta.empty())
-    {
-        ans += sta.top();
-        sta.pop();
-    }
-    cout << ans;
+	int n, num;
+	cin >> n;
 
-    return 0;
+	stack<int> stk;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> num;
+		if (num == 0)
+		{
+			stk.pop();
+			continue;
+		}
+		stk.push(num);
+	}
+	
+	int sum = 0;
+	int quant = stk.size();
+	for (int i = 0; i < quant; i++)
+	{
+		sum += stk.top();
+		stk.pop();
+	}
+	cout << sum;
+
+	return 0;
 }
