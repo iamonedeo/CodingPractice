@@ -1,37 +1,36 @@
-
 #include <iostream>
-#include <deque>
+#include <stack>
 #include <string>
+
+using namespace std;
 
 int main()
 {
-    using namespace std;
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+	cin.tie(0);
+	ios::sync_with_stdio(0);
 
-    int n;
-    string str;
-    int ans = 0;
+	int n;
+	string str;
+	int ans = 0;
+	cin >> n;
 
-    cin >> n;
-    cin.ignore();
+	for (int i = 0; i < n; i++)
+	{
+		cin >> str;
+		stack<char> stk;
+		for (int j = 0; j < str.size(); j++)
+		{
+			if (stk.empty()) stk.push(str[j]);
+			else
+			{
+				if (stk.top() != str[j]) stk.push(str[j]);
+				else if (stk.top() == str[j]) stk.pop();
+			}
+		}
+		if (stk.empty()) ans++;
+	}
 
-    for (int i = 0; i < n; i++)
-    {
-        cin >> str;
-        cin.ignore();
+	cout << ans;
 
-        deque<char> word;
-        for (int j = 0; str[j] != NULL; j++)
-        {
-            if (word.empty() || word.back() != str[j])
-                word.push_back(str[j]);
-            else word.pop_back();
-        }
-        if (word.empty()) ans++;
-    }
-
-    cout << ans;
-
-    return 0;
+	return 0;
 }
